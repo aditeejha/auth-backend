@@ -10,4 +10,5 @@ app.post("/signin", (req, res)=>{
 
 });
 
+app.use(express.json());
 app.listen(3000);
