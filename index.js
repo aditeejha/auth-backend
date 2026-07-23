@@ -26,14 +26,12 @@ app.post("/signup", (req, res)=>{
 
 
 app.post("/signin", (req, res)=>{
-    const username = req.body.username;
-    const password = req.body.password;
-
-    const user = users.find(user => user.username === username && user.password === password);
-
-    if (user) {
-        const token = generateToken();
-        user.token = token;
+    const username=req.body.username;
+    const password=req.body.password;
+    const user=users.find(user=>user.username===username && user.password===password);
+    if(user){
+        const token=generateToken();
+        user.token=token;
         res.send({
             token
         })
