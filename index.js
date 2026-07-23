@@ -42,6 +42,7 @@ app.post("/signin", (req, res)=>{
             message: "Invalid username or password"
         })
     }
+    console.log(users);
 });
 
 
