@@ -22,6 +22,7 @@ app.post("/signup", (req, res)=>{
     res.send({
         message: "You have signed up"
     })
+    console.log(users);
 });
 
 
