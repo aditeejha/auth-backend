@@ -4,7 +4,15 @@ const users=[];
 app.use(express.json());
 
 app.post("/signup", (req, res)=>{
-
+    const username=req.body.username;
+    const password=req.body.password;
+    users.push({
+        username,
+        password
+    })
+    res.send({
+        message: "You have signed up"
+    })
 });
 
 
