@@ -54,14 +54,14 @@ app.post("/signin",(req, res)=>{
         const token=jwt.sign({
             username: user.username
         }, JWT_SECRET);
-        user.token= token;
+        user.token=token;
         res.send({
             token
         })
         console.log(users);
-    } else {
+    }else{
         res.status(403).send({
-            message: "Invalid username or password"
+            message:"Invalid username or password"
         })
     }
 });
