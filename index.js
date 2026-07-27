@@ -86,15 +86,15 @@ app.get("/me",(req,res)=>{
     const userDetails=jwt.verify(token, JWT_SECRET);
     const username= userDetails.username;
     const user=users.find(user=>user.username===username);
-    if (user) {
+    if(user){
         res.send({
             username: user.username
         })
-    } else {
+    }else{
         res.status(401).send({
             message: "Unauthorized"
         })
     }
 })
 
-app.listen(8001);
+app.listen(8002);
