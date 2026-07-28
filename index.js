@@ -84,17 +84,17 @@ app.post("/signin",(req, res)=>{
 function auth(req, res, next){
     const token=req.headers.authorization;
     if(token){
-        jwt.verify(token, JWT_SECRET, (err, decoded) => {
-            if (err) {
+        jwt.verify(token, JWT_SECRET,(err, decoded)=>{
+            if(err){
                 res.status(401).send({
-                    message: "Unauthorized"
+                    message:"Unauthorized"
                 })
-            } else {
-                req.user = decoded;
+            }else{
+                req.user=decoded;
                 next();
             }
         })
-    } else {
+    }else{
         res.status(401).send({
             message: "Unauthorized"
         })
