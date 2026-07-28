@@ -81,7 +81,7 @@ app.post("/signin",(req, res)=>{
 // })
 
 
-app.get("/me",(req,res)=>{
+app.get("/me",auth, (req,res)=>{
     const token=req.headers.authorization;
     const userDetails=jwt.verify(token, JWT_SECRET);
     const username= userDetails.username;
