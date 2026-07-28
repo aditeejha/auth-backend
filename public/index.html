@@ -30,20 +30,13 @@
     alert("Signed in successfully");
 }
     </script>
-</head>
-<body>
-    <div>
-        Signup
-        <input id="signup-username" type="text" name="username" placeholder="Username">
-        <input id="signup-password" type="password" name="password" placeholder="Password">
-        <button onclick="signup()">Submit</button>
-    </div>
-    <div>
-        Signin
-        <input type="text" name="username" placeholder="Username">
-        <input type="password" name="password" placeholder="Password">
-        <button onclick="signin()">Submit</button>
-    </div>
+    <script>
+        async function logout() {
+        localStorage.removeItem("token");
+        alert("Logged out successfully");
+    }
+    </script>
+    
     <div>
         User information: 
         <div id="information"></div>
