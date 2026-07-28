@@ -112,4 +112,4 @@ app.get("/me", auth, (req, res)=>{
     })
 })//  
 
-app.listen(8002);
+app.listen(3000);
