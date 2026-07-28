@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auth Middleware</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"></script>
+    <script>
+        async function signup() {
+        const username=document.getElementById("signup-username").value;
+        const password=document.getElementById("signup-password").value;
+        const response=await axios.post("http://localhost:3000/signup", {
+        username: username,
+        password: password
+    })
+    alert("Signed up successfully");
+}
+    </script>
 </head>
 <body>
     <div>
