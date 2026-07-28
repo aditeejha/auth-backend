@@ -83,8 +83,7 @@ app.post("/signin",(req, res)=>{
 
 function auth(req, res, next){
     const token=req.headers.authorization;
-
-    if (token) {
+    if(token){
         jwt.verify(token, JWT_SECRET, (err, decoded) => {
             if (err) {
                 res.status(401).send({
