@@ -13,6 +13,10 @@ const JWT_SECRET = "USER_APP";
 //     return token;
 // }
 
+app.get("/", function(req, res) {
+    res.sendFile("./public/index.html")
+})
+
 app.post("/signup", (req, res)=>{
     const username=req.body.username;
     const password=req.body.password;
