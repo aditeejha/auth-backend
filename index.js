@@ -3,7 +3,7 @@ const app=express();
 const jwt = require("jsonwebtoken");
 const users=[];
 app.use(express.json());
-app.use(express.static("public"));
+//app.use(express.static("public"));
 const JWT_SECRET = "USER_APP";
 
 // function generateToken(){
