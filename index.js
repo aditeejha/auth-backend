@@ -1,5 +1,6 @@
 const express=require('express');
 const app=express();
+const jwt = require("jsonwebtoken");
 const users=[];
 app.use(express.json());
 const JWT_SECRET = "USER_APP";
