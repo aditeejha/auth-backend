@@ -37,46 +37,33 @@
     <script>
         async function getUserInformation() {
             const token = localStorage.getItem("token");
-
             if (token) {
                 const response = await axios.get("http://localhost:3000/me", {
                     headers: {
                         Authorization: token
                     }
                 });
-
                 document.getElementById("information").innerHTML = response.data.username;
             }
         }
     </script>
 </head>
-
 <body>
-
     <h2>Signup</h2>
-
     <input id="signup-username" type="text" placeholder="Username">
     <input id="signup-password" type="password" placeholder="Password">
     <button onclick="signup()">Signup</button>
-
     <hr>
-
     <h2>Signin</h2>
-
     <input id="signin-username" type="text" placeholder="Username">
     <input id="signin-password" type="password" placeholder="Password">
     <button onclick="signin()">Signin</button>
-
     <hr>
-
     <button onclick="getUserInformation()">Get User Information</button>
-
     <div>
         User information:
         <div id="information"></div>
     </div>
-
     <button onclick="logout()">Logout</button>
-
 </body>
 </html>
