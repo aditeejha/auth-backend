@@ -114,4 +114,4 @@ app.get("/me", auth, (req, res)=>{
     })
 })//  
 
-app.listen(3000);
+app.listen(2000);
