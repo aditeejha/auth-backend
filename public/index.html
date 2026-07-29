@@ -4,58 +4,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auth Middleware</title>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"></script>
+
     <script>
         async function signup() {
-        const username=document.getElementById("signup-username").value;
-        const password=document.getElementById("signup-password").value;
-        const response=await axios.post("http://localhost:3000/signup", {
-        username: username,
-        password: password
-    })
-    alert("Signed up successfully");
-}
+            const username = document.getElementById("signup-username").value;
+            const password = document.getElementById("signup-password").value;
+
+            const response = await axios.post("http://localhost:3000/signup", {
+                username: username,
+                password: password
+            });
+
+            alert("Signed up successfully");
+        }
     </script>
+
     <script>
-        async function signin(){
-        const username=document.getElementById("signin-username").value;
-        const password=document.getElementById("signin-password").value;
-        const response=await axios.post("http://localhost:3000/signin", {
-        username: username,
-        password: password
-    });
+        async function signin() {
+            const username = document.getElementById("signin-username").value;
+            const password = document.getElementById("signin-password").value;
 
-    localStorage.setItem("token", response.data.token);
+            const response = await axios.post("http://localhost:3000/signin", {
+                username: username,
+                password: password
+            });
 
-    alert("Signed in successfully");
-}
+            localStorage.setItem("token", response.data.token);
+
+            alert("Signed in successfully");
+        }
     </script>
+
     <script>
         async function logout() {
-        localStorage.removeItem("token");
-        alert("Logged out successfully");
-    }
+            localStorage.removeItem("token");
+            alert("Logged out successfully");
+        }
     </script>
+
     <script>
         async function getUserInformation() {
-        const token = localStorage.getItem("token");
-        if (token) {
-            const response = await axios.get("http://localhost:3000/me", {
-            headers: {
-                Authorization: token
+            const token = localStorage.getItem("token");
+
+            if (token) {
+                const response = await axios.get("http://localhost:3000/me", {
+                    headers: {
+                        Authorization: token
+                    }
+                });
+
+                document.getElementById("information").innerHTML = response.data.username;
             }
-        });
-        document.getElementById("information").innerHTML = response.data.username;
-    }
-}
+        }
     </script>
-    
+</head>
+
+<body>
+
+    <h2>Signup</h2>
+
+    <input id="signup-username" type="text" placeholder="Username">
+    <input id="signup-password" type="password" placeholder="Password">
+    <button onclick="signup()">Signup</button>
+
+    <hr>
+
+    <h2>Signin</h2>
+
+    <input id="signin-username" type="text" placeholder="Username">
+    <input id="signin-password" type="password" placeholder="Password">
+    <button onclick="signin()">Signin</button>
+
+    <hr>
+
+    <button onclick="getUserInformation()">Get User Information</button>
+
     <div>
-        User information: 
+        User information:
         <div id="information"></div>
     </div>
-    <div>
-        <button onclick="logout()">Logout</button>
-    </div>
+
+    <button onclick="logout()">Logout</button>
+
 </body>
 </html>
