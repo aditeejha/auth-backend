@@ -92,7 +92,7 @@ function auth(req, res, next){
     if(token){
         jwt.verify(token, JWT_SECRET,(err, decoded)=>{
             if(err){
-                res.status(401).send({
+                return res.status(401).send({
                     message:"Unauthorized"
                 })
             }else{
